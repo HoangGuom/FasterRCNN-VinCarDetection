@@ -1,6 +1,6 @@
 # VinFast Car Detection Dataset
 
-> **Lưu ý về dữ liệu trong repository:** nguồn repository ban đầu chỉ chứa 671 ảnh test, 2.683 file nhãn train và annotation CSV. Ảnh train không có trong Git nên phải được bổ sung riêng vào `public/train/images` trước khi huấn luyện.
+> **Dữ liệu trong repository:** 2.683 ảnh train kèm nhãn và 671 ảnh test, tổng cộng 3.354 ảnh.
 
 ## Overview
 This dataset is designed for the **VinFast Car Detection Challenge**. The goal is to detect VinFast vehicles in various real-world scenarios. The dataset has been curated to focus effectively on a single class object detection task.
