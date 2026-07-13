@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+
+.vscode/
+
+*.pth
+*.pt
+*.zip
+
+data/
+weights/
+single_infer_results/

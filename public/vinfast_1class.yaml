@@ -1,0 +1,6 @@
+names:
+- vin_car
+nc: 1
+test: ../test/images
+train: ../train/images
+val: ''

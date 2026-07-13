@@ -1,0 +1,44 @@
+project:
+  name: VF-Class VinFast Vehicle Detection
+
+dataset_params:
+  im_train_path: public/train/images
+  ann_train_path: public/train_labels.csv
+  im_test_path: public/test/images
+  num_classes: 2
+  class_names:
+    - background
+    - vin_car
+
+model_params:
+  detector: faster_rcnn
+  backbone: convnext_tiny
+  neck: fpn
+  input:
+    train_size: 1024
+    max_size: 1280
+  anchor_sizes: [16, 24, 32, 64, 128]
+  anchor_ratios: [0.75, 1.0, 1.5, 2.0, 2.5]
+  rpn:
+    train_pre_nms_topk: 3000
+    train_post_nms_topk: 1500
+    test_pre_nms_topk: 1500
+    test_post_nms_topk: 1500
+    nms_threshold: 0.7
+  roi:
+    nms_threshold: 0.55
+    detections_per_image: 150
+  thresholds:
+    eval_score: 0.05
+    demo_score: 0.25
+
+train_params:
+  output_dir: weights
+  seed: 1111
+  batch_size: 1
+  num_epochs: 50
+  optimizer: adamw
+  lr: 0.00005
+  weight_decay: 0.0005
+  scheduler: cosine
+  val_ratio: 0.15
