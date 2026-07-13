@@ -13,14 +13,13 @@ Repository đã được rút gọn về duy nhất phiên bản tốt nhất sa
 
 Checkpoint không được đưa lên GitHub vì có dung lượng lớn. File checkpoint tốt nhất hiện vẫn được giữ ở máy trong `weights/best.pt`.
 
-Phần dataset công khai lấy từ repository ban đầu đã được đưa trực tiếp vào dự án, gồm:
+Dataset công khai đã được đưa trực tiếp vào dự án, gồm:
 
+- 2.683 ảnh train trong `public/train/images`.
 - 671 ảnh test trong `public/test/images`.
 - 2.683 file nhãn YOLO trong `public/train/labels`.
 - Annotation CSV trong `public/train_labels.csv`.
 - File submission mẫu và mô tả dataset.
-
-Nguồn ban đầu không chứa 2.683 ảnh train, vì vậy cần bổ sung ảnh train vào `public/train/images` nếu muốn huấn luyện lại.
 
 ## Cấu trúc dự án
 
@@ -29,16 +28,15 @@ FasterRCNN-PyTorch/
 ├── config/
 │   └── final.yaml              # Cấu hình cuối cùng
 ├── model/
-│   ├── __init__.py
 │   └── faster_rcnn.py          # ConvNeXt-T + FPN + Faster R-CNN
 ├── tools/
-│   ├── __init__.py
 │   ├── train_final.py          # Huấn luyện bản cuối
 │   ├── infer.py                # Detect nhiều ảnh, xuất CSV
 │   ├── infer_single.py         # Detect một ảnh, vẽ bounding box
 │   └── soft_nms.py             # Gộp bounding box từ các lát ảnh
 ├── public/
 │   ├── train/
+│   │   ├── images/             # 2.683 ảnh train
 │   │   └── labels/             # 2.683 nhãn YOLO
 │   ├── test/
 │   │   └── images/             # 671 ảnh test
@@ -109,10 +107,10 @@ Chuẩn bị dữ liệu theo cấu trúc:
 ```text
 public/
 ├── train/
-│   ├── images/          # Cần bổ sung ảnh train
-│   └── labels/          # Đã có 2.683 file nhãn
+│   ├── images/          # 2.683 ảnh train
+│   └── labels/          # 2.683 file nhãn
 ├── test/
-│   └── images/          # Đã có 671 ảnh test
+│   └── images/          # 671 ảnh test
 └── train_labels.csv
 ```
 
